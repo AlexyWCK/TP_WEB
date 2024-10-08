@@ -15,9 +15,12 @@ def home():
 
 @app.route("/detail/<id>")
 def detail(id):
-    books = get_sample()
-    book = books[int(id)-1]
-    return render_template("detail.html",book=book)
+    try:
+        books = get_sample()  # ou `Book.query.all()` si tu utilises une base de données
+        book = books[int(id) - 1]
+        return render_template("detail.html", book=book)
+    except IndexError:
+        return render_template("404.html"), 404
 
 
 @app.route("/edit/author/<int:id>")
