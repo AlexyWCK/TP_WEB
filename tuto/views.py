@@ -2,9 +2,9 @@ from .app import *
 from flask import render_template
 from .models import get_sample, get_author, AuthorForm
 
-from flask import url_for , redirect
+from flask import url_for ,redirect, request
 from .app import db
-from .models import Author
+from .models import Author, Book
 
 
 
@@ -57,3 +57,15 @@ def add_author():
         return redirect(url_for('edit_author', id=a.id))
     a = get_author(int(f.id.data))
     return render_template("edit-author.html", author=a, form=f)
+
+@app.route("/search", methods=["GET"])
+def search():
+    query = request.args.get('query')
+    authors = Author.query.filter(Author.name.like(f'%{query}%')).all()  # Cherche les auteurs par nom
+    books = []
+    
+    for author in authors:
+        author_books = Book.query.filter(Book.author_id == author.id).all()  # Récupère tous les livres de cet auteur
+        books.extend(author_books)  # Ajoute les livres à la liste
+    
+    return render_template("search_results.html", books=books, query=query)

@@ -1,0 +1,51 @@
+/* Style pour la page de résultats de recherche */
+body {
+    background-color: #f4f4f9; /* Couleur de fond douce */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #343a40; /* Couleur du texte */
+}
+
+.sample {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid pour les livres */
+    gap: 20px; /* Espacement entre les éléments */
+    padding: 20px; /* Padding autour de la grille */
+}
+
+.sample a {
+    display: block; /* Affichage en bloc pour les liens */
+    text-decoration: none; /* Supprime le soulignement */
+    border: 1px solid #e1e1e1; /* Bordure légère */
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Cache le débordement */
+    background: #fff; /* Fond blanc */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transitions douces pour les effets */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.sample a:hover {
+    transform: translateY(-5px); /* Élévation au survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+.sample img {
+    width: 100%; /* Largeur de l'image à 100% */
+    height: auto; /* Hauteur automatique pour conserver le ratio */
+    border-bottom: 1px solid #e1e1e1; /* Bordure en bas de l'image */
+}
+
+.sample h3 {
+    padding: 10px;
+    text-align: center; /* Centrer le titre */
+    color: #343a40; /* Couleur du texte */
+}
+
+p {
+    text-align: center; /* Centre le texte pour les résultats non trouvés */
+    color: #ff0000; /* Couleur rouge pour le message d'aucun résultat */
+    margin-top: 20px; /* Marge au-dessus du message */
+}
