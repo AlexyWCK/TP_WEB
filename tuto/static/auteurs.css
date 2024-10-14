@@ -33,22 +33,6 @@ a:hover {
     color: white;
 }
 
-/* Style pour le lien de retour */
-a[href="{{ url_for('home') }}"] {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-a[href="{{ url_for('home') }}"]:hover {
-    background-color: #c0392b;
-}
-
-
 /* Style pour le bouton Ajouter un auteur */
 .btn-add {
     display: inline-block;
@@ -67,8 +51,7 @@ a[href="{{ url_for('home') }}"]:hover {
     background-color: #27ae60;
 }
 
-/* Style pour le lien de retour */
-a[href="{{ url_for('home') }}"] {
+.btn-delete {
     display: inline-block;
     background-color: #e74c3c;
     color: white;
@@ -78,6 +61,6 @@ a[href="{{ url_for('home') }}"] {
     text-align: center;
 }
 
-a[href="{{ url_for('home') }}"]:hover {
+.btn-delete:hover {
     background-color: #c0392b;
 }

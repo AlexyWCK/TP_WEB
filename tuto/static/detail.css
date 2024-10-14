@@ -1,37 +1,103 @@
-* {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-.livre-detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.edit-author-container {
+    max-width: 600px;
+    margin: 100px auto; /* Espace en haut pour centrer */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.livre > img {
-    width: 250px;
-}
-
-#bouton-acheter {
-    margin-top: 30px;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-h1 {
-    padding-top: 100px;
-    padding-bottom: 100px;
+.edit-author-container h1 {
     text-align: center;
-    text-decoration: underline;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
-button {
-    margin-top: 10px;
+.author-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    font-size: 1rem;
+}
+
+.has-error input {
+    border-color: #e74c3c;
+}
+
+.error-list {
+    list-style: none;
+    padding-left: 0;
+    color: #e74c3c;
+}
+
+.error-item {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les boutons */
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%; /* Pour que les boutons aient la même largeur */
+}
+
+.btn-save {
+    background-color: #27ae60;
+}
+
+.btn-save:hover {
+    background-color: #2ecc71;
+}
+
+.btn-add {
+    background-color: #3498db;
+}
+
+.btn-add:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    width: 100%; /* Bouton de suppression pleine largeur */
+    margin-top: 20px; /* Marge supérieure pour le bouton supprimer */
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
 }

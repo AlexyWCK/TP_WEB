@@ -6,20 +6,21 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ book.title }}</h1>
-    <div class="livre-detail">
-        <div class="livre">
-            <img src="{{ url_for('static', filename='images/' + book.img) }}" alt="{{ book.title }}" title="{{ book.title }}">
-        </div>
-        <div class="text-center">
-            <h2>{{ book.title }}</h2>
-            <h3>Auteur : {{ book.author.name }}</h3>
-            <h3>Prix : {{ book.price }} €</h3>
-            <div id="bouton-acheter">
-                <button type="button" class="w-100 btn btn-lg btn-primary" onclick="window.location.href='{{ book.url }}';">Acheter</button>
+    <div class="livre-container">
+        <h1 class="livre-title">{{ book.title }}</h1>
+        <div class="livre-detail">
+            <div class="livre-image">
+                <img src="{{ url_for('static', filename='images/' + book.img) }}" alt="{{ book.title }}" title="{{ book.title }}" class="img-fluid">
             </div>
-            <div id="bouton-modifier">
-                <button type="button" class="w-100 btn btn-lg btn-secondary" onclick="window.location.href='{{ url_for('edit_author', id=book.id) }}';">Modifier</button>
+            <div class="livre-info text-center">
+                <h2 class="livre-subtitle">{{ book.title }}</h2>
+                <h3 class="livre-author">Auteur : {{ book.author.name }}</h3>
+                <h3 class="livre-price">Prix : {{ book.price }} €</h3>
+                <div class="button-container">
+                    <button type="button" class="btn btn-lg btn-primary acheter-button" onclick="window.location.href='{{ book.url }}';">Acheter</button>
+                    <button type="button" class="btn btn-lg btn-secondary modifier-button" onclick="window.location.href='{{ url_for('edit_author', id=book.id) }}';">Modifier</button>
+                </div>
             </div>
         </div>
+    </div>
 {% endblock %}

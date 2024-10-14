@@ -52,21 +52,42 @@ def authors():
 def add_author():
     a = None
     f = AuthorForm()
+    print(f.id.data)
     if f.validate_on_submit():
-        id = int(f.id.data)
-        a = get_author(id)
+        a = Author()
         a.name = f.name.data
+        db.session.add(a) #delete
         db.session.commit()
-        return redirect(url_for('edit_author', id=a.id))
-    a = get_author(int(f.id.data))
-    return render_template("edit-author.html", author=a, form=f)
+        return authors()
+    return render_template("ajouter_auteur.html", form=f)
+
+# @app.route("/delete/author", methods =["POST"])
+# def delete_author():
+#     a = None
+#     f = AuthorForm()
+#     print(f.id.data)
+#     if f.validate_on_submit():
+#         id = int(f.id.data)
+#         a = get_author(id)
+#         db.session.delete(a)
+#         db.session.commit()
+#         return authors()
+#     return render_template("ajouter_auteur.html", form=f)
+
+@app.route("/delete/author", methods=["POST"])
+def delete_author():
+    id = request.form.get('id')
+    a = get_author(int(id))
+    if a:
+        db.session.delete(a)
+        db.session.commit()
+    return redirect(url_for('authors'))
 
 @app.route("/search", methods=["GET"])
 def search():
     query = request.args.get('query')
     authors = Author.query.filter(Author.name.like(f'%{query}%')).all()  # Cherche les auteurs par nom
     books = []
-    
     for author in authors:
         author_books = Book.query.filter(Book.author_id == author.id).all()  # Récupère tous les livres de cet auteur
         books.extend(author_books)  # Ajoute les livres à la liste

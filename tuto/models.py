@@ -34,7 +34,7 @@ class AuthorForm(FlaskForm):
 
 
 def get_sample():
-    return Book.query.limit(10).all()
+    return Book.query.all()
 
 def get_author(id):
     return Author.query.get(id)
