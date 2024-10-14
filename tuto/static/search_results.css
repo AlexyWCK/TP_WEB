@@ -1,0 +1,51 @@
+/* Style pour la page de résultats de recherche */
+body {
+    background-color: #f4f4f9;
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #343a40;
+    }
+
+.sample {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    }
+
+.sample a {
+    display: block;
+    text-decoration: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+.sample a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+.sample img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e1e1e1;
+    }
+
+.sample h3 {
+    padding: 10px;
+    text-align: center;
+    color: #343a40;
+    }
+
+p {
+    text-align: center;
+    color: #ff0000;
+    margin-top: 20px;
+    }
+}

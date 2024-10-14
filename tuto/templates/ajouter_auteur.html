@@ -2,18 +2,21 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='add_author.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ajouter_auteur.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Ajouter un nouvel auteur</h1>
-    
-    <form method="POST" action="{{ url_for('add_author') }}">
-        <label for="name">Nom de l'auteur :</label>
-        <input type="text" id="name" name="name" placeholder="Entrez le nom de l'auteur" required>
+    <div class="form-container">
+        <h1>Ajouter un nouvel auteur</h1>
+        <form method="POST" action="{{ url_for('add_author') }}" class="add-author-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="name">Nom de l'auteur :</label>
+                <input type="text" id="name" name="name" placeholder="Entrez le nom de l'auteur" required>
+            </div>
+            <button type="submit" class="btn-submit">Ajouter</button>
+        </form>
 
-        <button type="submit">Ajouter</button>
-    </form>
-
-    <a href="{{ url_for('home') }}">Retour</a>
+        <a href="{{ url_for('home') }}" class="btn-back">Retour</a>
+    </div>
 {% endblock %}

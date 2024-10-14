@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search_results.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1>Résultats de recherche pour "{{ query }}"</h1>
+    <div class="sample">
+        {% if books %}
+            {% for book in books %}
+                <a href="{{ url_for('detail', id=book.id) }}">
+                    <img src="{{ url_for('static', filename='images/' + book.img) }}" alt="{{ book.title }}" title="{{ book.title }}">
+                    <h3>{{ book.title }}</h3>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p>Aucun livre trouvé.</p>
+        {% endif %}
+    </div>
+{% endblock %}

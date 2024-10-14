@@ -1,34 +1,40 @@
-
 {% extends "base.html" %}
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit-author.css') }}">
 {% endblock %}
 
 {% block content %}
+<div class="edit-author-container">
+    <h1>Éditer l'auteur : {{ author.name }}</h1>
 
-<h1>Edit author: {{ author.name }}</h1>
-<form role="form" method="POST" action="{{ url_for('save_author') }}">
-    {{ form.hidden_tag() }}
-<div class=
-    {% if form.name.errors %}
-        "form-group has-error"
-    {% else %}
-        "form-group"
-    {% endif %}
-    >
-    {{ form.name.label }} {{ form.name(size = 50, class_ ="form-control") }}
+    <form role="form" method="POST" action="{{ url_for('save_author') }}" class="author-form">
+        {{ form.hidden_tag() }}
+
+        <div class="{% if form.name.errors %}form-group has-error{% else %}form-group{% endif %}">
+            <label for="name">Nom de l'auteur :</label>
+            {{ form.name(size=50, class_="form-control") }}
+        </div>
+
+        {% if form.name.errors %}
+        <ul class="error-list">
+            {% for error in form.name.errors %}
+            <li class="error-item">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="button-group">
+            <input class="btn btn-save" type="submit" value="Enregistrer">
+            <a class="btn btn-add" href="{{ url_for('home') }}">Retour</a>
+        </div>
+    </form>
+
+    <form role="form" method="POST" action="{{ url_for('delete_author') }}" class="delete-form">
+        {{ form.hidden_tag() }}
+        <input type="hidden" name="id" value="{{ author.id }}">
+        <button type="submit" class="btn btn-delete">Supprimer</button>
+    </form>
 </div>
-{% if form.name.errors %}
-<ul class="list-group">
-    {% for error in form.name.errors %}
-    <li class="list-group-item">{{ error }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-<input class="btn btn-default" type="submit" value="Enregistrer"> 
-<button class="btn btn-default" type="button" onclick="window.location.href='{{ url_for('home') }}';">Retour</button>
-</form>
-
 {% endblock %}

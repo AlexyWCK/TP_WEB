@@ -1,0 +1,83 @@
+/* Centre le formulaire au milieu de l'écran */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Hauteur pour centrer verticalement */
+}
+
+.add-author-form, .delete-author-form {
+    width: 100%;
+    max-width: 600px; /* Augmentation de la largeur maximale */
+    padding: 30px 40px; /* Augmentation du padding */
+    margin: 35px 0; /* Augmentation de la marge verticale */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px; /* Augmentation de la marge en bas des groupes de formulaire */
+}
+
+.form-group label {
+    margin-bottom: 10px; /* Ajout d'espace entre le label et le champ de texte */
+    display: block; /* Pour s'assurer que le label occupe tout l'espace horizontal */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px; /* Augmentation du padding */
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Boutons */
+.btn-submit, .btn-delete {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Augmentation de l'espace au-dessus des boutons */
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+}
+
+.btn-submit:hover {
+    background-color: #2ecc71;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* Lien retour */
+.btn-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -150px;
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    color: #1f639b;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
