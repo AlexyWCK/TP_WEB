@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-author-container {
+    max-width: 600px; /* Largeur maximale pour le formulaire d'édition */
+    margin: 100px auto; /* Espace en haut pour centrer */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-author-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espacement entre les groupes de champs */
+}
+
+.form-control {
+    width: 100%; /* Champs de formulaire à pleine largeur */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure du champ */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les boutons */
+    margin-top: 20px; /* Espace au-dessus des boutons */
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save {
+    background-color: #007bff; /* Couleur du bouton "Enregistrer" */
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Couleur du bouton "Supprimer" */
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Couleur au survol */
+}
+
+.btn-add {
+    background-color: #6c757d; /* Couleur du bouton "Retour" */
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #5a6268; /* Couleur au survol */
+}
+
+.error-list {
+    color: #dc3545; /* Couleur des erreurs */
+    margin-top: 10px; /* Espace au-dessus des erreurs */
+}
+
+.error-item {
+    list-style: none; /* Supprime les puces des erreurs */
+}
