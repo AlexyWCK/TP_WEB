@@ -2,14 +2,13 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit-author.css') }}">
 {% endblock %}
 
 {% block content %}
 <div class="edit-author-container">
     <h1>Éditer l'auteur : {{ author.name }}</h1>
 
-    <!-- Formulaire d'édition de l'auteur -->
     <form role="form" method="POST" action="{{ url_for('save_author') }}" class="author-form">
         {{ form.hidden_tag() }}
 
@@ -32,7 +31,6 @@
         </div>
     </form>
 
-    <!-- Formulaire pour supprimer l'auteur -->
     <form role="form" method="POST" action="{{ url_for('delete_author') }}" class="delete-form">
         {{ form.hidden_tag() }}
         <input type="hidden" name="id" value="{{ author.id }}">
