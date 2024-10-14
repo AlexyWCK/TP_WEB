@@ -17,10 +17,6 @@
             <button type="submit" class="btn-submit">Ajouter</button>
         </form>
 
-        <form method="POST" action="{{ url_for('delete_author', id=form.id.data) }}" class="delete-author-form">
-            <button type="submit" class="btn-delete">Supprimer l'auteur</button>
-        </form>
-
         <a href="{{ url_for('home') }}" class="btn-back">Retour</a>
     </div>
 {% endblock %}
