@@ -1,19 +1,26 @@
 {% extends "base.html" %}
 
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="container">
+<div class="login-container">
     <h1>Connexion</h1>
-    <form method="POST" action="{{ url_for('login') }}">
-        <div class="form-group">
-            <label for="username">Nom d’utilisateur</label>
-            <input type="text" name="username" required class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" required class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Se connecter</button>
-        <a href="{{ url_for('register') }}">Créer un compte</a>
-    </form>
+    <div class="login-box">
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Nom d’utilisateur</label>
+                <input type="text" name="username" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <a href="{{ url_for('register') }}" class="btn btn-link">Créer un compte</a>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,51 +1,69 @@
-/* login.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
 
-.container {
+.login-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    justify-content: center;
+    height: 100vh;
     padding: 20px;
 }
 
 h1 {
     margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: #343a40;
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid #e0e0e0; /* Bordure légère */
 }
 
 .form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
     width: 100%;
-    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
 }
 
-label {
-    font-weight: bold;
-}
-
-input.form-control {
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding: 10px;
-}
-
-input.form-control:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: #0056b3;
-    border-color: #0056b3;
 }
 
 a {
@@ -54,8 +72,13 @@ a {
     margin-top: 10px;
     color: #007bff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #0056b3;
+}
+
+body {
+    background-color: #f0f2f5; /* Couleur de fond pour le body */
 }

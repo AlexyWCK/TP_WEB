@@ -1,8 +1,12 @@
+from wtforms import HiddenField, PasswordField, StringField
 from .app import *
 from flask import render_template, flash, redirect, request, url_for
 from .models import get_sample, get_author, AuthorForm
 from .app import db
 from .models import Author, Book
+from flask import request
+from flask_login import login_user, logout_user
+from flask_wtf import FlaskForm
 
 @app.route("/")
 def home():
@@ -83,3 +87,24 @@ def search():
         books.extend(author_books)
     
     return render_template("search_results.html", books=books, query=query)
+
+@app.route("/login/", methods=("GET", "POST"))
+def login():
+    f = LoginForm()
+    if f.validate_on_submit():
+        user = f.get_authenticated_user()
+        if user:
+            login_user(user)
+            return redirect(url_for("home"))
+    return render_template("login.html", form=f)
+
+@app.route("/logout/")
+def register():
+    # logout_user()
+    return redirect(url_for('home'))
+
+class LoginForm(FlaskForm):
+    username = StringField('Username')
+    password = PasswordField('Password')
+    next = HiddenField()
+
